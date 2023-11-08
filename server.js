@@ -6,7 +6,6 @@ const querystring = require("querystring");
 const server = http.createServer((req, res) => {
     const page = url.parse(req.url).pathname;
     const params = querystring.parse(url.parse(req.url).query);
-    console.log(page);
 
     if (page === "/") {
         fs.readFile("index.html", (err, data) => {
@@ -34,6 +33,33 @@ const server = http.createServer((req, res) => {
                     bandMemberName: "David Portner",
                     bandMemberStageName: "Avey Tare",
                     albumWhenJoined: "Spirit They're Gone...",
+                };
+                res.end(JSON.stringify(objToJson));
+            }
+            if (params["bandmember"] === "panda bear") {
+                res.writeHead(200, { "Content-Type": "application/json" });
+                const objToJson = {
+                    bandMemberName: "Noah Lennox",
+                    bandMemberStageName: "Panda Bear",
+                    albumWhenJoined: "Spirit They're Gone...",
+                };
+                res.end(JSON.stringify(objToJson));
+            }
+            if (params["bandmember"] === "geologist") {
+                res.writeHead(200, { "Content-Type": "application/json" });
+                const objToJson = {
+                    bandMemberName: "Brian Weitz",
+                    bandMemberStageName: "Geologist",
+                    albumWhenJoined: "Danse Manatee",
+                };
+                res.end(JSON.stringify(objToJson));
+            }
+            if (params["bandmember"] === "deakin") {
+                res.writeHead(200, { "Content-Type": "application/json" });
+                const objToJson = {
+                    bandMemberName: "Josh Dibb",
+                    bandMemberStageName: "Deakin",
+                    albumWhenJoined: "Campfire Songs",
                 };
                 res.end(JSON.stringify(objToJson));
             }

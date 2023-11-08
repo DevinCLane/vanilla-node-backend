@@ -1,4 +1,8 @@
 document.querySelector("#submit").addEventListener("click", makeReq);
+document.querySelector(".form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    makeReq();
+});
 
 async function makeReq() {
     const bandMember = document.querySelector("#bandmember").value;
