@@ -9,6 +9,24 @@
     <body>
         <h1>Vanilla Node Backend API</h1>
         <p>A simple node backend built with core modules (no express)</p>
+        <form>
+            <ul>
+                <li>
+                    <label for="bandmember">Bandmember:</label>
+                    <input type="text" id="bandmember" name="bandmember_name" />
+                </li>
+                <li class="button">
+                    <button id="submit" type="button" name="button">
+                        Click for info
+                    </button>
+                </li>
+            </ul>
+        </form>
+        <div>
+            <h2 id="bandMemberName"></h2>
+            <p id="bandMemberStageName"></p>
+            <p id="albumWhenJoined"></p>
+        </div>
         <script src="/js/main.js"></script>
     </body>
 </html>

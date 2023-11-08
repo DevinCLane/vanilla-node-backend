@@ -16,6 +16,7 @@ const server = http.createServer((req, res) => {
         });
     } else if (page === "/css/style.css") {
         fs.readFile("css/style.css", (err, data) => {
+            res.writeHead(200, { "Content-Type": "text/css" });
             res.write(data);
             res.end();
         });
@@ -25,6 +26,18 @@ const server = http.createServer((req, res) => {
             res.write(data);
             res.end();
         });
+    } else if (page === "/api") {
+        if ("bandmember" in params) {
+            if (params["bandmember"] === "avey tare") {
+                res.writeHead(200, { "Content-Type": "application/json" });
+                const objToJson = {
+                    bandMemberName: "David Portner",
+                    bandMemberStageName: "Avey Tare",
+                    albumWhenJoined: "Spirit They're Gone...",
+                };
+                res.end(JSON.stringify(objToJson));
+            }
+        }
     }
 });
 
