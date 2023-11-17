@@ -1,26 +1,26 @@
-const http = require("http");
-const fs = require("fs");
-const url = require("url");
-const querystring = require("querystring");
+import { createServer } from "http";
+import { readFile } from "fs";
+import { parse } from "url";
+import { parse as _parse } from "querystring";
 
-const server = http.createServer((req, res) => {
-    const page = url.parse(req.url).pathname;
-    const params = querystring.parse(url.parse(req.url).query);
+const server = createServer((req, res) => {
+    const page = parse(req.url).pathname;
+    const params = _parse(parse(req.url).query);
 
     if (page === "/") {
-        fs.readFile("index.html", (err, data) => {
+        readFile("index.html", (err, data) => {
             res.writeHead(200, { "Content-Type": "text/html" });
             res.write(data);
             res.end();
         });
     } else if (page === "/css/style.css") {
-        fs.readFile("css/style.css", (err, data) => {
+        readFile("css/style.css", (err, data) => {
             res.writeHead(200, { "Content-Type": "text/css" });
             res.write(data);
             res.end();
         });
     } else if (page === "/js/main.js") {
-        fs.readFile("js/main.js", (err, data) => {
+        readFile("js/main.js", (err, data) => {
             res.writeHead(200, { "Content-Type": "text/javascript" });
             res.write(data);
             res.end();
@@ -67,4 +67,4 @@ const server = http.createServer((req, res) => {
     }
 });
 
-server.listen(8000);
+server.listen(8080);
