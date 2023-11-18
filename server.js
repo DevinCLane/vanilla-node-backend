@@ -67,4 +67,5 @@ const server = createServer((req, res) => {
     }
 });
 
-server.listen(3000);
+const PORT = process.env.PORT || 3000;
+server.listen(3000, () => console.log(`server running on port ${PORT}`));
