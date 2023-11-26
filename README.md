@@ -1,4 +1,5 @@
 # Vanilla Node Backend
+<img width="583" alt="Screenshot 2023-11-25 at 8 28 17 PM" src="https://github.com/DevinCLane/vanilla-node-backend/assets/8145785/f61f4193-f355-47a0-b1de-5fed79144b32">
 
 A project building out a simple backend with core Node modules (no express).
 
